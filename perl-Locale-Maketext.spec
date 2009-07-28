@@ -1,22 +1,20 @@
+%define upstream_name    Locale-Maketext
+%define upstream_version 1.13
 
-%define realname   Locale-Maketext
-%define version    1.13
-%define release    %mkrel 1
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
-Name:       perl-%{realname}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
 Summary:    Framework for software localization
-Source:     http://www.cpan.org/modules/by-module/Locale/%{realname}-%{version}.tar.gz
-Url:        http://search.cpan.org/dist/%{realname}
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: perl-devel
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Locale/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires: perl(I18N::LangTags)
 BuildRequires: perl(Test::More)
-
 BuildArch: noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 It is a common feature of applications (whether run directly, or via the
@@ -36,7 +34,7 @@ constituent modules -- they are a complete (if small) example application
 that uses Maketext.
 
 %prep
-%setup -q -n %{realname}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -57,5 +55,4 @@ rm -rf %buildroot
 %doc ChangeLog README
 %{_mandir}/man3/*
 %perl_vendorlib/*
-
 
