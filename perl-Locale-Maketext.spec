@@ -1,9 +1,9 @@
 %define upstream_name    Locale-Maketext
-%define upstream_version 1.17
+%define upstream_version 1.19
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 3
+Release:    %mkrel 1
 
 Summary:    Framework for software localization
 License:    GPL+ or Artistic
