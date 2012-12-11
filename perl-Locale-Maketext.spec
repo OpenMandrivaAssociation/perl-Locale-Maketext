@@ -1,20 +1,20 @@
 %define upstream_name    Locale-Maketext
 %define upstream_version 1.19
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    Framework for software localization
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Locale/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Framework for software localization
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Locale/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(I18N::LangTags)
-BuildRequires: perl(Test::More)
-BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	perl-devel
+BuildRequires:	perl(I18N::LangTags)
+BuildRequires:	perl(Test::More)
+BuildArch:	noarch
 
 %description
 It is a common feature of applications (whether run directly, or via the
@@ -37,22 +37,47 @@ that uses Maketext.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc ChangeLog README
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
+
+%changelog
+* Mon Jun 13 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1.190.0-1mdv2011.0
++ Revision: 684770
+- update to new version 1.19
+
+* Sat Apr 23 2011 Funda Wang <fwang@mandriva.org> 1.170.0-3
++ Revision: 656936
+- rebuild for updated spec-helper
+
+* Sat Nov 13 2010 Jérôme Quelin <jquelin@mandriva.org> 1.170.0-2mdv2011.0
++ Revision: 597102
+- rebuild
+
+* Sat Nov 13 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1.170.0-1mdv2011.0
++ Revision: 597084
+- new version
+
+* Tue Jul 28 2009 Jérôme Quelin <jquelin@mandriva.org> 1.130.0-1mdv2011.0
++ Revision: 401638
+- rebuild using %%perl_convert_version
+- fixed license field
+
+* Mon May 11 2009 Jérôme Quelin <jquelin@mandriva.org> 1.13-1mdv2010.0
++ Revision: 374537
+- import perl-Locale-Maketext
+
+
+* Mon May 11 2009 cpan2dist 1.13-1mdv
+- initial mdv release, generated with cpan2dist
 
