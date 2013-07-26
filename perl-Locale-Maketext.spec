@@ -1,15 +1,15 @@
 %define upstream_name    Locale-Maketext
-%define upstream_version 1.19
+%define upstream_version 1.23
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Version:	%perl_convert_version 1.23
+Release:	1
 
 Summary:	Framework for software localization
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Locale/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Locale/Locale-Maketext-1.23.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(I18N::LangTags)
@@ -80,4 +80,5 @@ make test
 
 * Mon May 11 2009 cpan2dist 1.13-1mdv
 - initial mdv release, generated with cpan2dist
+
 
