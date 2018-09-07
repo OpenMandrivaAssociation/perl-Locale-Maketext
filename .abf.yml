@@ -1,5 +1,2 @@
-removed_sources:
-  Locale-Maketext-1.19.tar.gz: bd927377b9760f1663fac34651265551518fee16
-  Locale-Maketext-1.23.tar.gz: a6e109a016e8afd0770dfe68e7318ad86016ff95
 sources:
-  Locale-Maketext-1.25.tar.gz: cbe13625205d57a5132663e7e7eebf01dd0e7425
+  Locale-Maketext-1.28.tar.gz: fa87e5a7fde014304fd079ea454011c9ed6974d7

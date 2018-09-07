@@ -1,9 +1,9 @@
 %define upstream_name    Locale-Maketext
-%define upstream_version 1.25
+%define upstream_version 1.28
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Release:	1
 
 Summary:	Framework for software localization
 
